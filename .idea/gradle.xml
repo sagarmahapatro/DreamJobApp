@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleJvm" value="#JAVA_HOME" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/backend" />
+            <option value="$PROJECT_DIR$/backend/api-gateway" />
+            <option value="$PROJECT_DIR$/backend/application-service" />
+            <option value="$PROJECT_DIR$/backend/auth-service" />
+            <option value="$PROJECT_DIR$/backend/config-server" />
+            <option value="$PROJECT_DIR$/backend/employer-service" />
+            <option value="$PROJECT_DIR$/backend/eureka-server" />
+            <option value="$PROJECT_DIR$/backend/jobopening-service" />
+            <option value="$PROJECT_DIR$/backend/jobseeker-service" />
+            <option value="$PROJECT_DIR$/frontend" />
+            <option value="$PROJECT_DIR$/frontend/admin-ui" />
+            <option value="$PROJECT_DIR$/frontend/employer-ui" />
+            <option value="$PROJECT_DIR$/frontend/jobseeker-ui" />
+            <option value="$PROJECT_DIR$/frontend/shell" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>
