@@ -1,0 +1,22 @@
+plugins {
+    id "com.github.node-gradle.node" version "7.0.2"
+}
+
+node {
+    version = '20.11.1'      // Node version
+    npmVersion = '10.5.0'    // NPM version
+    download = true          // Download node locally (no global dependency)
+}
+
+task npmInstalldependency(type: NpmTask) {
+    args = ['install']
+}
+
+task npmBuild(type: NpmTask) {
+    dependsOn npmInstalldependency
+    args = ['run', 'build', '--', '--configuration=production']
+}
+
+tasks.build {
+    dependsOn npmBuild
+}

@@ -1,0 +1,12 @@
+{
+  "name": "employer-ui",
+  "version": "1.0.0",
+  "description": "employer ui",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "echo \"Building the admin UI...\""
+  },
+  "author": "sagar mahaopatro",
+  "license": "ISC"
+}
