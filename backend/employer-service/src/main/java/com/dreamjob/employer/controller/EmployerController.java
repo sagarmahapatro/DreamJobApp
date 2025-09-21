@@ -13,6 +13,11 @@ public class EmployerController {
 
     public EmployerController(EmployerService service) { this.service = service; }
 
+    @GetMapping("/ping")
+    public String ping() {
+        return "employer-service is alive!";
+    }
+
     @PostMapping("/register")
     public Employer register(@RequestBody Employer employer) {
         return service.register(employer);

@@ -12,6 +12,11 @@ public class JobOpeningController {
 
     public JobOpeningController(JobOpeningService service) { this.service = service; }
 
+    @GetMapping("/ping")
+    public String ping() {
+        return "job-openings is alive!";
+    }
+
    @PostMapping
    public JobOpening create(@RequestBody JobOpening jobOpening) {
 

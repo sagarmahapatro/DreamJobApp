@@ -7,11 +7,15 @@ services:
       MYSQL_DATABASE: dreamjob
     ports:
       - "3306:3306"
+    networks:
+      - dreamjob-net
 
   mongodb:
     image: mongo:6
     ports:
       - "27017:27017"
+    networks:
+      - dreamjob-net
 
   zookeeper:
     image: bitnami/zookeeper:latest
@@ -19,6 +23,8 @@ services:
       ZOOKEEPER_CLIENT_PORT: 2181
     ports:
       - "2181:2181"
+    networks:
+      - dreamjob-net
 
   kafka:
     image: bitnami/kafka:latest
@@ -29,11 +35,16 @@ services:
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
     ports:
       - "9092:9092"
-
+    networks:
+      - dreamjob-net
+    depends_on:
+      - zookeeper
   eureka-server:
     build: ./backend/eureka-server
     ports:
       - "8761:8761"
+    networks:
+      - dreamjob-net
 
   api-gateway:
     build: ./backend/api-gateway
@@ -41,6 +52,9 @@ services:
       - "8080:8080"
     depends_on:
       - eureka-server
+      - config-server
+    networks:
+      - dreamjob-net
 
   auth-service:
     build: ./backend/auth-service
@@ -48,13 +62,18 @@ services:
       - "8081:8081"
     depends_on:
       - eureka-server
+      - config-server
+    networks:
+      - dreamjob-net
 
   config-server:
     build: ./backend/config-server
     ports:
-      - "8082:8082"
+      - "8888:8888"
     depends_on:
       - eureka-server
+    networks:
+      - dreamjob-net
 
   employer-service:
     build: ./backend/employer-service
@@ -62,6 +81,9 @@ services:
       - mysql
       - kafka
       - eureka-server
+      - config-server
+    networks:
+      - dreamjob-net
 
   jobopening-service:
     build: ./backend/jobopening-service
@@ -69,18 +91,24 @@ services:
       - mongodb
       - kafka
       - eureka-server
+    networks:
+      - dreamjob-net
 
   jobseeker-service:
     build: ./backend/jobseeker-service
     depends_on:
       - mysql
       - eureka-server
+    networks:
+      - dreamjob-net
 
   application-service:
     build: ./backend/application-service
     depends_on:
       - mongodb
       - eureka-server
+    networks:
+      - dreamjob-net
 
   angular-shell:
     build: ./frontend/shell
@@ -88,3 +116,10 @@ services:
       - "4200:80"
     depends_on:
       - api-gateway
+    networks:
+      - dreamjob-net
+
+
+networks:
+  dreamjob-net:
+    driver: bridge

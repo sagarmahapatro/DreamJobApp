@@ -13,6 +13,11 @@ public class ApplicationController {
 
     public ApplicationController(ApplicationService service) { this.service = service; }
 
+    @GetMapping("/ping")
+    public String ping() {
+        return "applications-service is alive!";
+    }
+
     @PostMapping
     public Application apply(@RequestBody Application application) {
         return service.apply(application);

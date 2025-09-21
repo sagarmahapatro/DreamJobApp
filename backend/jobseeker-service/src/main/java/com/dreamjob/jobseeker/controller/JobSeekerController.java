@@ -17,6 +17,11 @@ public class JobSeekerController {
 
     public JobSeekerController(JobSeekerService service) { this.service = service; }
 
+    @GetMapping("/ping")
+    public String ping() {
+        return "jjobseekers is alive!";
+    }
+
     @PostMapping("/register")
     public JobSeeker register(@RequestBody JobSeeker employer) {
         return service.register(employer);
