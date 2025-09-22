@@ -102,8 +102,8 @@ services:
     networks:
       - dreamjob-net
 
-  application-service:
-    build: ./backend/application-service
+  jobapplication-service:
+    build: ./backend/jobapplication-service
     depends_on:
       - mongodb
       - eureka-server

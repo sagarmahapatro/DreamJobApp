@@ -21,3 +21,8 @@ dependencies {
     implementation 'org.springframework.cloud:spring-cloud-starter-bootstrap'
     implementation 'org.springframework.kafka:spring-kafka'
 }
+
+tasks.named('jar') {
+    enabled = false
+}
+

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/jobseekers")
+@RequestMapping("/job-seekers")
 public class JobSeekerController {
     private final JobSeekerService service;
 
