@@ -17,25 +17,18 @@ public class JobOpeningController {
         return "job-openings is alive!";
     }
 
-   @PostMapping
-   public JobOpening create(@RequestBody JobOpening jobOpening) {
+    @GetMapping
+    public List<JobOpening> findAllJobOpening() {
+        return service.findAllJobOpening();
+    }
 
+    @PostMapping
+    public JobOpening create(@RequestBody JobOpening jobOpening) {
         return service.create(jobOpening);
-   }
-
-   @GetMapping
-   public List<JobOpening> findAllJobOpening() {
-        return null;
-   }
-
+    }
 
     @GetMapping("/{id}")
     public JobOpening findJobOpening(@PathVariable Integer id) {
-        return null;
-    }
-
-    @GetMapping("/sereach")
-    public List<JobOpening> searchJobOpening(@RequestParam String skill, @RequestParam String location) {
         return null;
     }
 
@@ -43,4 +36,22 @@ public class JobOpeningController {
     public JobOpening deleteJobOpening(@PathVariable Integer id) {
         return null;
     }
+
+    @PutMapping
+    public JobOpening update(@RequestBody JobOpening jobOpening) {
+        return service.update(jobOpening);
+    }
+
+    @GetMapping("/employer/{id}")
+    public JobOpening getJobOpeningPostedByEmployer(@PathVariable Integer id) {
+        return service.getJobOpeningPostedByEmployer(id);
+    }
+
+
+    @GetMapping("/sereach")
+    public List<JobOpening> searchJobOpening(@RequestParam String skill, @RequestParam String location) {
+        return null;
+    }
+
+
 }

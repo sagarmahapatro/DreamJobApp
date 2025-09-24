@@ -5,17 +5,27 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: dreamjob
+      MYSQL_USER: dreamuser
+      MYSQL_PASSWORD: dreampass
     ports:
       - "3306:3306"
     networks:
       - dreamjob-net
+    volumes:
+      - mysql_data:/var/lib/mysql
 
   mongodb:
     image: mongo:6
     ports:
       - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mongoadmin
+      MONGO_INITDB_ROOT_PASSWORD: mongopass
+      MONGO_INITDB_DATABASE: dreamjob
     networks:
       - dreamjob-net
+    volumes:
+      - mongo_data:/data/db
 
   zookeeper:
     image: bitnami/zookeeper:latest
@@ -134,3 +144,7 @@ services:
 networks:
   dreamjob-net:
     driver: bridge
+
+volumes:
+  mysql_data:
+  mongo_data:

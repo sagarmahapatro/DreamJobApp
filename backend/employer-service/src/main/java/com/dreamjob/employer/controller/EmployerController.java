@@ -18,23 +18,30 @@ public class EmployerController {
         return "employer-service is alive!";
     }
 
-    @PostMapping("/register")
-    public Employer register(@RequestBody Employer employer) {
-        return service.register(employer);
+    @PostMapping
+    Employer createEmployer(@RequestBody Employer employer) {
+        return service.createEmployer(employer);
     }
 
-    @PostMapping("/{id}/jobs")
-    public JobDescription postJobOpening(@PathVariable Integer id, @RequestBody JobDescription jobDescription) {
-        return null;
+    @GetMapping
+    List<Employer> getAllEmployers() {
+        return service.getAllEmployers();
+    }
+    @GetMapping("/{id}")
+    Employer getEmployer(@PathVariable Long id) {
+        return service.getEmployerById(id);
     }
 
-    @GetMapping("/{id}/jobs")
-    public List<JobDescription> getJobs(@PathVariable Integer id) {
-        return null;
+    @PutMapping("/{id}")
+    Employer updateEmployerDetail(@PathVariable Long id, @RequestBody Employer employer) {
+        return service.updateEmployerDetail(id, employer);
     }
 
-    @DeleteMapping("/jobs/{jobId}")
-    public JobDescription deleteJob(@PathVariable Integer jobId) {
-        return null;
+    @DeleteMapping("/{id}")
+    public Employer deleteEmployer(@PathVariable Long id) {
+        return service.deleteEmployerById(id);
     }
+
+
+
 }

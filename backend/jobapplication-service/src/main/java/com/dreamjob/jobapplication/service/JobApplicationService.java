@@ -35,4 +35,20 @@ public class JobApplicationService {
     public JobApplication update(JobApplication application) {
         return null;
     }
+
+    public List<JobApplication> getAllJobSeekerApplications() {
+        return null;
+    }
+
+    public JobApplication getJobApplication(Long id) {
+        return null;
+    }
+
+    public JobApplication updateJobApplication(Long id, JobApplication application) {
+        return null;
+    }
+
+    public JobApplication deleteJobApplicationById(Long id) {
+        return null;
+    }
 }

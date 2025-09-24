@@ -5,6 +5,8 @@ import com.dreamjob.Jobopening.repository.JobOpeningRepository;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class JobOpeningService {
     private final JobOpeningRepository repo;
@@ -22,6 +24,18 @@ public class JobOpeningService {
     }
 
     public JobOpening create(JobOpening jobOpening) {
+        return null;
+    }
+
+    public List<JobOpening> findAllJobOpening() {
+        return null;
+    }
+
+    public JobOpening update(JobOpening jobOpening) {
+        return null;
+    }
+
+    public JobOpening getJobOpeningPostedByEmployer(Integer id) {
         return null;
     }
 }
