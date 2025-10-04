@@ -20,6 +20,12 @@ dependencies {
     implementation 'org.springframework.cloud:spring-cloud-starter-config'
     implementation 'org.springframework.cloud:spring-cloud-starter-bootstrap'
     implementation 'org.springframework.kafka:spring-kafka'
+
+    implementation files("../dreamjob-lib/build/libs/dreamjob-lib-1.0.0.jar")
+}
+
+tasks.named("compileJava") {
+    dependsOn(":backend:dreamjob-lib:jar")
 }
 
 tasks.named('jar') {

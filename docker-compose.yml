@@ -28,7 +28,7 @@ services:
       - mongo_data:/data/db
 
   zookeeper:
-    image: bitnami/zookeeper:latest
+    image: ubuntu/zookeeper:latest
     environment:
       - ALLOW_ANONYMOUS_LOGIN=yes
     ports:
@@ -37,7 +37,7 @@ services:
       - dreamjob-net
 
   kafka:
-    image: bitnami/kafka:3.6.1
+    image: ubuntu/kafka:latest
     container_name: kafka
     ports:
       - "9092:9092"

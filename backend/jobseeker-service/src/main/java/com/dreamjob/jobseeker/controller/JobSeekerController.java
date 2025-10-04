@@ -52,6 +52,7 @@ public class JobSeekerController {
 
     @DeleteMapping("/{id}")
     public JobSeeker deleteJobSeeker(@RequestBody Long id) {
-        return null;
+        return service.deleteJobSeeker(id);
+
     }
 }

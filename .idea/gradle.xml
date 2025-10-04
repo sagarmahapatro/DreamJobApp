@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$/backend/api-gateway" />
             <option value="$PROJECT_DIR$/backend/auth-service" />
             <option value="$PROJECT_DIR$/backend/config-server" />
+            <option value="$PROJECT_DIR$/backend/dreamjob-lib" />
             <option value="$PROJECT_DIR$/backend/employer-service" />
             <option value="$PROJECT_DIR$/backend/eureka-server" />
             <option value="$PROJECT_DIR$/backend/jobapplication-service" />

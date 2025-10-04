@@ -15,6 +15,11 @@ public class JobSeeker {
      @Embedded
     private Profile profile;
 
+    private String resumeSummery;
+
+    private String resumeFileLocation;
+
+
     private String status;
 
     @ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
@@ -54,9 +59,27 @@ public class JobSeeker {
     public Set<Skill> getSkills() { return skills; }
     public void setSkills(Set<Skill> skills) { this.skills = skills; }
 
+    public String getResumeSummery() {
+        return resumeSummery;
+    }
+
+    public void setResumeSummery(String resumeSummery) {
+        this.resumeSummery = resumeSummery;
+    }
+
+    public String getResumeFileLocation() {
+        return resumeFileLocation;
+    }
+
+    public void setResumeFileLocation(String resumeFileLocation) {
+        this.resumeFileLocation = resumeFileLocation;
+    }
+
+
     public void update(JobSeeker jobSeeker) {
         setStatus(jobSeeker.getStatus());
         profile.update(jobSeeker.getProfile());
         setSkills(jobSeeker.getSkills());
     }
+
 }

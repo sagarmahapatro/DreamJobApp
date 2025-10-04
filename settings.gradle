@@ -1,5 +1,5 @@
 rootProject.name = 'dreamjob-app'
-
+include 'backend:dreamjob-lib'
 include 'backend:eureka-server'
 include 'backend:api-gateway'
 include 'backend:employer-service'
